@@ -4,6 +4,7 @@ import pymysql
 
 conn = pymysql.connect(
     host="localhost",
+    user="root",
     password="zeenathasma@733",
     database="banksight",
     port=3306
@@ -1557,6 +1558,7 @@ elif menu == "ANALYTICAL INSIGHTS":
         else:
 
             st.warning("⚠️ Please select a valid analysis")
+
 
 
 
