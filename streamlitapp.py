@@ -2,12 +2,15 @@ import streamlit as st
 import pandas as pd
 import pymysql
 
-conn=pymysql.connect(
+conn = pymysql.connect(
     host="localhost",
     user="root",
     password="zeenathasma@733",
-    database="banksight"
+    database="banksight",
+    port=3306
 )
+
+print("✅ MySQL connected successfully")
 cursor=conn.cursor()
 
 st.sidebar.title("💡 BANKSIGHT HUB")
@@ -1553,4 +1556,5 @@ elif menu == "ANALYTICAL INSIGHTS":
             result = cursor.fetchall()
             st.dataframe(result)
         else:
+
             st.warning("⚠️ Please select a valid analysis")
