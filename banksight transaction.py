@@ -14,32 +14,30 @@ loans = pd.read_csv("bank transtract/loans.csv")
 support_tickets = pd.read_csv("bank transtract - Copy/support_tickets.csv")
 credit_cards = pd.read_json("bank transtract - Copy/credit_cards.json")
 
-# %%
 
-
-# %%
 customers.head()
 
-# %%
 customers.isnull().sum()
 
-# %%
-conn=pymysql.connect(
+conn = pymysql.connect(
     host="localhost",
     user="root",
     password="zeenathasma@733",
-    database="banksight"
+    database="banksight",
+    port=3306
 )
+
+print("✅ MySQL connected successfully")
 cursor=conn.cursor()
 
-# %%
+
 print(type(conn))
 
-# %%
+
 cursor.execute("CREATE DATABASE IF NOT EXISTS customer_data")
 print("✅ Database created or already exists.")
 
-# %%
+
 #CUSTOMERS
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS customers (
@@ -505,6 +503,7 @@ result_15 = cursor.fetchall()
 headers = ["SUPPORT AGENT","HIGH CUSTOMER RATING"]
 print("Which support agents have resolved the most critical tickets with high customer ratings (≥4)?")
 print(tabulate(result_15, headers = headers))
+
 
 
 
