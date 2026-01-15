@@ -3,7 +3,7 @@ import pandas as pd
 import pymysql
 
 conn = pymysql.connect(
-    host="127.0.0.1",
+    host="sql",
     user="root",
     password="zeenathasma@733",
     database="banksight",
@@ -1558,4 +1558,5 @@ elif menu == "ANALYTICAL INSIGHTS":
         else:
 
             st.warning("⚠️ Please select a valid analysis")
+
 
